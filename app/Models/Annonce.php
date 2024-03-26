@@ -14,7 +14,7 @@ class Annonce extends Model
         'description',
         'location',
         'date',
-        'competence',
+        'competance',
     ];
 
     public function reservation(){

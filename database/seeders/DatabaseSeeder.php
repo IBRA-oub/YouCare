@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Type;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,5 +20,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Type::create(['name' => 'education']);
+        Type::create(['name' => 'informatique']);
+        Type::create(['name' => 'marketing']);
+        Type::create(['name' => 'Enseignement']);
+        Type::create(['name' => 'Service']);
     }
 }
