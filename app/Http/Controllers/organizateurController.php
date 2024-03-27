@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 
 class organizateurController extends Controller
 {
+   
     // _____________________red annonce_______________
     
     public function redALLAnnonce(){
-        $annonces = Annonce::all();
+        $user = auth()->user();
+        $annonces = Annonce::where('user_id', $user->id)->get();
+        
         
         if ($annonces->isNotEmpty()) {
             return response()->json(['msg' => $annonces]);
