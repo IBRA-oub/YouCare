@@ -8,7 +8,15 @@ use App\Models\Annonce;
 class benevoleController extends Controller
 {
     // _____________________red annonce_______________
-    
+     /**
+     * @OA\Get(
+     *     path="/api/get-All-annonce-benevole",
+     *     summary="Get a list of annonces for an benevole",
+     *     tags={"Annonces"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
     public function redALLAnnonce(){
         
         $annonces = Annonce::all();
@@ -22,6 +30,15 @@ class benevoleController extends Controller
 
     // _____________________filter by location annonce_______________
     
+      /**
+     * @OA\Get(
+     *     path="/api/filter-by-location-type",
+     *     summary="filter annonces ",
+     *     tags={"Annonces"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
     public function filterAnnonce(Request $request) {
         $request->validate([
             'filterByLocation'=> 'sometimes|required', 

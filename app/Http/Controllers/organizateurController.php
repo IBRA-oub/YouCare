@@ -10,11 +10,19 @@ class organizateurController extends Controller
 {
    
     // _____________________red annonce_______________
-    
-    public function redALLAnnonce(){
+  /**
+     * @OA\Get(
+     *     path="/api/get-All-annonce-organisateur",
+     *     summary="Get a list of annonces for an organization",
+     *     tags={"Annonces"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
+    public function redALLAnnonce()
+    {
         $user = auth()->user();
         $annonces = Annonce::where('user_id', $user->id)->get();
-        
         
         if ($annonces->isNotEmpty()) {
             return response()->json(['msg' => $annonces]);
@@ -24,6 +32,16 @@ class organizateurController extends Controller
     }
 
     // ______________________add annonce________________
+
+    /**
+     * @OA\Post(
+     *     path="/api/create-annonce",
+     *     summary="Create annonces for an organization",
+     *     tags={"Annonces"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
     public function addAnnonce(Request $request){
         $request->validate([
             'titre'=> 'required',
@@ -53,6 +71,17 @@ class organizateurController extends Controller
 
     // ______________________update annonce ____________________
 
+    
+    /**
+     * @OA\Put(
+     *     path="/api/update-annonce",
+     *     summary="update annonces for an organization",
+     *     tags={"Annonces"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
+    
     public function updateAnnonce(Request $request){
         $request->validate([
             'titre'=> 'required',
@@ -81,6 +110,16 @@ class organizateurController extends Controller
     }
 
     // _________________________delete_____________________
+    
+     /**
+     * @OA\Delete(
+     *     path="/api/delete-annonce/{id}",
+     *     summary="delete annonces for an organization",
+     *     tags={"Annonces"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
     
     public function deleteAnnonce($id){
         

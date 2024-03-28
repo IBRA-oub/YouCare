@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 class reservationController extends Controller
 {
     // ______________________add resrvation by bénévole ________________
+     /**
+     * @OA\Post(
+     *     path="/api/add-reservation",
+     *     summary="Add a reservation",
+     *     tags={"Reservations"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
    public function addReservation(Request $request){
 
     $request->validate([
@@ -33,6 +42,15 @@ class reservationController extends Controller
 
 //    ___________________red reservation for organisateur_____________________
 
+   /**
+     * @OA\Get(
+     *     path="/api/get-pending-reservation",
+     *     summary="Get pending reservation",
+     *     tags={"Reservations"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
    public function pendingReservation(){
     $user = auth()->user();
     
@@ -50,6 +68,15 @@ class reservationController extends Controller
    
 //    ______________________accepte reservation by organisateur___________________
 
+ /**
+     * @OA\Put(
+     *     path="/api/accept-reservation/{id}",
+     *     summary="Accepted reservation",
+     *     tags={"Reservations"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
    public function acceptReservation($id){
     
    
@@ -68,6 +95,15 @@ class reservationController extends Controller
 
    //    ______________________refused reservation by organisateur___________________
 
+    /**
+     * @OA\Put(
+     *     path="/api/refuse-reservation/{id}",
+     *     summary="Refused reservation",
+     *     tags={"Reservations"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
    public function refuseReservation($id){
     
 
@@ -85,6 +121,15 @@ class reservationController extends Controller
 
    //    ___________________get me reservation for bénévole_____________________
 
+   /**
+     * @OA\Get(
+     *     path="/api/get-me-reservation",
+     *     summary="Get reservation for bénévole",
+     *     tags={"Reservations"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */
    public function getMeReservation(){
     $user = auth()->user();
     $Reservations = Reservation::where('user_id', $user->id)->get();

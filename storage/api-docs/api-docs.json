@@ -1,0 +1,283 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "YouCare",
+        "description": "YouCare API is a platform designed to facilitate volunteerism by connecting organizers of events with individuals willing to contribute their time and skills. Through this API, organizers can create announcements for various initiatives, specifying details such as event type, description, date, location, and required skills. Volunteers can browse these announcements, filtering them based on event type or location, and apply to participate in projects aligning with their interests and availability. The API also supports authentication mechanisms, allowing secure access to routes requiring authentication. Additionally, organizers have the ability to rate volunteers after each event, providing feedback to the community. Administrators can manage organizers, announcements, and volunteers, as well as view statistics related to events, organizers, and volunteers. With comprehensive documentation provided through Swagger, utilizing the YouCare API is made straightforward and accessible.",
+        "contact": {
+            "email": "test@test.com"
+        },
+        "license": {
+            "name": "API License",
+            "url": "http://www.example.com/license"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Login",
+                "operationId": "44212a9096e4b09358281e9ec8a0701d",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "register",
+                "operationId": "a718f172ff3ac464d723835815f8fb57",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Logout",
+                "operationId": "79854151e609bd20032aa5aa4d5a35c0",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/refresh": {
+            "post": {
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Refresh",
+                "operationId": "7d5da2870d3eba95cdd67878ab20da3a",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/get-All-annonce-benevole": {
+            "get": {
+                "tags": [
+                    "Annonces"
+                ],
+                "summary": "Get a list of annonces for an benevole",
+                "operationId": "2c4a0bf3ce5474e3f805730802845684",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/filter-by-location-type": {
+            "get": {
+                "tags": [
+                    "Annonces"
+                ],
+                "summary": "filter annonces ",
+                "operationId": "d527b4582ea589460c35c0a5d49d3e5e",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/get-All-annonce-organisateur": {
+            "get": {
+                "tags": [
+                    "Annonces"
+                ],
+                "summary": "Get a list of annonces for an organization",
+                "operationId": "f07a2f18e0f4dfd53d18edfb7ccb295b",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/create-annonce": {
+            "post": {
+                "tags": [
+                    "Annonces"
+                ],
+                "summary": "Create annonces for an organization",
+                "operationId": "827b86b86010a3a9fe75568a92e15baf",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/update-annonce": {
+            "put": {
+                "tags": [
+                    "Annonces"
+                ],
+                "summary": "update annonces for an organization",
+                "operationId": "80f219ab1e387e9e0497810b8112dfcf",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/delete-annonce/{id}": {
+            "delete": {
+                "tags": [
+                    "Annonces"
+                ],
+                "summary": "delete annonces for an organization",
+                "operationId": "2eda8c7f36d4fdda0e863ff3ef6c66c1",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/add-reservation": {
+            "post": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Add a reservation",
+                "operationId": "e19507ae332dcda6625231d577006c09",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/get-pending-reservation": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get pending reservation",
+                "operationId": "fb10efd29c5d770c5dcf67a79186fe53",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/accept-reservation/{id}": {
+            "put": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Accepted reservation",
+                "operationId": "edc3264ff43f0b739d595d6e7a59f569",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/refuse-reservation/{id}": {
+            "put": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Refused reservation",
+                "operationId": "6b7f8ab147652cab562fe18842904943",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/api/get-me-reservation": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservation for bénévole",
+                "operationId": "a66ba23398847de0e3ba57b3b59bcce4",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}

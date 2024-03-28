@@ -19,15 +19,16 @@ return new class extends Migration
             $table->string('location');
             $table->text('competance');
             
+            $table->foreignId('type_id')
+            ->constrained('types')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            
             $table->foreignId('user_id')
             ->constrained('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             
-            $table->foreignId('type_id')
-            ->constrained('types')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
