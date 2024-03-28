@@ -82,7 +82,7 @@ class organizateurController extends Controller
      * )
      */
     
-    public function updateAnnonce(Request $request){
+    public function updateAnnonce(Request $request,$id){
         $request->validate([
             'titre'=> 'required',
             'description'=> 'required',
@@ -91,7 +91,7 @@ class organizateurController extends Controller
             'competance'=> 'required',
         ]);
 
-        $updateAnnonce =Annonce::findOrFail($request->id);
+        $updateAnnonce =Annonce::findOrFail($id);
         $updateAnnonce->titre = $request->titre;
         $updateAnnonce->description = $request->description;
         $updateAnnonce->location = $request->location;

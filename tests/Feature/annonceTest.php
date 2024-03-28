@@ -30,7 +30,7 @@ class annonceTest extends TestCase
             'description' => 'description',
             'date' => '2000-2-21',
             'location' => 'location',
-            'competance' => 'hjk',
+            'competance' => 'hjk,hjk,pp',
             'type_id' => 1,
         ]);
 
@@ -42,18 +42,53 @@ class annonceTest extends TestCase
 {
     $user = User::factory()->create();
     
-    $announcement = Annonce::factory()->create(['user_id' => $user->id]);
-
     $this->actingAs($user);
-
-    $response = $this->put('/api/update-annonce/' . $announcement->id, [
+    
+        $announcement = Annonce::create([
         'user_id' => $user->id, 
         'titre' => 'Updated Title',
         'description' => 'Updated Description',
         'date' => '2024-03-27',
         'location' => 'Updated Location',
         'competance' => 'Updated Competence',
-        'type_id' => 2,
+        'type_id' => 1,
+    ]);
+
+
+    $response = $this->put('/api/update-annonce/' . $announcement->id, [
+        'user_id' => $user->id, 
+        'titre' => 'Updated Titlehhhhhhhhhh',
+        'description' => 'Updated Descriptionhhhhhhh',
+        'date' => '2024-03-11',
+        'location' => 'Updated Locationhhhhhh',
+        'competance' => 'Updated Competencehhhhhh',
+        'type_id' => 1,
+      
+    ]);
+
+    
+    $response->assertStatus(200);
+}
+
+
+public function testDeleteAnnonce()
+{
+    $user = User::factory()->create();
+    
+    $this->actingAs($user);
+    
+        $announcement = Annonce::create([
+        'user_id' => $user->id, 
+        'titre' => 'Updated Title',
+        'description' => 'Updated Description',
+        'date' => '2024-03-27',
+        'location' => 'Updated Location',
+        'competance' => 'Updated Competence',
+        'type_id' => 1,
+    ]);
+
+
+    $response = $this->delete('/api/delete-annonce/' . $announcement->id, [
       
     ]);
 

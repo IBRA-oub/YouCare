@@ -21,13 +21,13 @@ class AnnonceFactory extends Factory
         return [
            
            
-                'titre' => $this->faker->sentence(),
-                'description' => $this->faker->paragraph(),
-                'date' => $this->faker->date(),
-                'location' => $this->faker->city(),
-                'competance' => $this->faker->text(),
-                'type_id' => 1,
-                'user_id' => \App\Models\User::factory(),
+                // 'titre' => $this->faker->sentence(),
+                // 'description' => $this->faker->paragraph(),
+                // 'date' => $this->faker->date(),
+                // 'location' => $this->faker->city(),
+                // 'competance' => $this->faker->text(),
+                // 'type_id' => 1,
+                // 'user_id' => \App\Models\User::factory(),
             
             
         ];
@@ -37,9 +37,9 @@ class AnnonceFactory extends Factory
     public function unverified()
     {
         return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
+            // return [
+            //     'email_verified_at' => null,
+            // ];
         });
     }
 }

@@ -22,7 +22,8 @@ return new class extends Migration
             $table->foreignId('type_id')
             ->constrained('types')
             ->onDelete('cascade')
-            ->onUpdate('cascade');
+            ->onUpdate('cascade')
+            ->default(1);
             
             $table->foreignId('user_id')
             ->constrained('users')
