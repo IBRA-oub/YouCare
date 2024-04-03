@@ -23,7 +23,7 @@ class authTest extends TestCase
         
         $response = $this->post('/api/register', [
            'name' => 'brahim',
-           'email' => 'yassine3@example.com',
+           'email' => 'brahim1@example.com',
            'password' => 'brahim123',
            'password_confirmation' => 'brahim123',
            'role' => 'organisateur',
@@ -35,7 +35,7 @@ class authTest extends TestCase
     public function testLogin(){
 
         $response = $this->post('/api/login' , [
-            'email' => 'yassine3@example.com',
+            'email' => 'brahim1@example.com',
             'password' =>'brahim123',
         ]);
         $response->assertStatus(200);

@@ -97,11 +97,15 @@ class organizateurController extends Controller
         $updateAnnonce->location = $request->location;
         $updateAnnonce->date = $request->date;
         $updateAnnonce->competance = $request->competance;
-        $updateAnnonce->user_id = $request->user_id;
         $updateAnnonce->type_id = $request->type_id;
 
+        if($updateAnnonce->user_id === auth()->user()->id){
         $updateAnnonce->save();
+        }else{
+            return response()->json(['msg'=> 'error auth try again']);
+        }
 
+       
         if($updateAnnonce){
             return response()->json(['msg'=> 'update successfully']);
         }else{
